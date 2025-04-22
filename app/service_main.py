@@ -20,7 +20,7 @@ line_bot_api = LineBotApi(cfg.LINE_CHANNEL_ACCESS_TOKEN)  # CHANNEL_ACCESS_TOKEN
 handler = WebhookHandler(cfg.LINE_CHANNEL_SECRET)  # CHANNEL_SECRET
 
 
-@router.post("")
+@router.post("/message")
 async def message_qa(request: Request):
     signature = request.headers["X-Line-Signature"]
     body = await request.body()
