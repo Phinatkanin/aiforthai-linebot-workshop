@@ -83,7 +83,7 @@ def handle_text_message(event):
     # #1. Tokeninzer
     #TLex+, Lexto+
     # text = tokenizer.tokenize(event.message.text, engine='trexplus', return_json=True) # TLex+
-    # text = tokenizer.tokenize(event.message.text, engine='lexto', return_json=True) # Lexto+
+    text = tokenizer.tokenize(event.message.text, engine='lexto', return_json=True) # Lexto+
 
     # #TLex++
     # res = tokenizer.tokenize(event.message.text, engine='trexplusplus', return_json=True)
@@ -157,7 +157,7 @@ def handle_text_message(event):
     # text = zh_alignment.analyze(content[0], content[1])
 
     #11. send text message to response
-    # send_message(event,str(text)) # หากทำข้อการส่งข้อความข้อ 1-11 ให้เปิดใช้งานการส่งข้อความตอบกลับทาง Line
+    send_message(event,str(text)) # หากทำข้อการส่งข้อความข้อ 1-11 ให้เปิดใช้งานการส่งข้อความตอบกลับทาง Line
 
     # #12. Vaja TTS (ก่อนเรียกใช้ Vaja ให้ปิดข้อ 11. และเปิดข้อ 13.ให้เรียบร้อยก่อน)
     # #12.1 Vaja9 case เรียกใช้ผ่าน PIP package (ไม่สามารถกำหนดเสียงได้ จะได้เสียงเป็นผู้ชาย)

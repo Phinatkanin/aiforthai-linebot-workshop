@@ -16,11 +16,12 @@ router = APIRouter(tags=["Main"], prefix="/message")
 cfg = Configs()
 
 setting.set_api_key(cfg.AIFORTHAI_APIKEY) # AIFORTHAI_APIKEY
-line_bot_api = LineBotApi(cfg.LINE_CHANNEL_ACCESS_TOKEN)  # CHANNEL_ACCESS_TOKEN
+#line_bot_api = LineBotApi(cfg.LINE_CHANNEL_ACCESS_TOKEN)  # CHANNEL_ACCESS_TOKEN
+line_bot_api = LineBotApi("XvkRULXRPqqh4FVULHCMM78tBexSJpHDPIqG1mmsZ+OePVVaG6uR1+Eb0cfLRxar6Eujkjd0jSqxfyv+7nW7B1h5B7mUvKYCeBB/W2CO8d2sfHNMKQVCCMUBpXINr4yUJo3WtZVi9INJRE29twVLKgdB04t89/1O/w1cDnyilFU=")
 handler = WebhookHandler(cfg.LINE_CHANNEL_SECRET)  # CHANNEL_SECRET
 
 
-@router.post("/message")
+@router.post("")
 async def message_qa(request: Request):
     signature = request.headers["X-Line-Signature"]
     body = await request.body()
